@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/dotnet/sdk:7.0",
+  "extensions": [
+    "ms-dotnettools.csharp"
+  ],
+  // Install prerequisites for Native AOT:
+  // https://github.com/dotnet/runtime/blob/30a5b1f75ff72dd6d4f34003f32bcfb10f3f43b9/src/coreclr/nativeaot/docs/prerequisites.md
+  "onCreateCommand": "apt update && apt install -y clang zlib1g-dev libkrb5-dev"
+}
