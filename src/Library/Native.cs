@@ -13,4 +13,7 @@ public class Native
 
     [DllImport(nameof(Native))]
     public static extern int Sum(ArrayStruct array);
+
+    [DllImport(nameof(Native))]
+    public static extern ArrayStruct MinMax(ArrayStruct arrayStruct);
 }

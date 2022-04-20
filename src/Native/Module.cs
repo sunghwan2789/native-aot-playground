@@ -22,9 +22,25 @@ public class Module
     {
         var span = arrayStruct.AsSpan<int>();
         var total = 0;
-        foreach (var i in span) {
+        foreach (var i in span)
+        {
             total += i;
         }
         return total;
+    }
+
+    [UnmanagedCallersOnly(EntryPoint = nameof(MinMax))]
+    public static ArrayStruct MinMax(ArrayStruct arrayStruct)
+    {
+        var span = arrayStruct.AsSpan<int>();
+        var min = span[0];
+        var max = span[0];
+        foreach (var i in span[1..])
+        {
+            min = Math.Min(min, i);
+            max = Math.Max(max, i);
+        }
+
+        return new [] { min, max };
     }
 }
