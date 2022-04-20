@@ -5,14 +5,36 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>1.1.0</Version>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Linux -->
-    <None Include="..\Native\publish\linux-x64\Native.so">
+    <None Include="..\Native\publish\linux-x64\Native.so"
+          Condition="Exists('..\Native\publish\linux-x64\Native.so')">
       <Pack>true</Pack>
       <PackagePath>runtimes\linux-x64\native</PackagePath>
+    </None>
+    <None Include="..\Native\publish\linux-arm64\Native.so"
+          Condition="Exists('..\Native\publish\linux-arm64\Native.so')">
+      <Pack>true</Pack>
+      <PackagePath>runtimes\linux-arm64\native</PackagePath>
+    </None>
+    <!-- Windows -->
+    <None Include="..\Native\publish\win-x86\Native.dll"
+          Condition="Exists('..\Native\publish\win-x86\Native.dll')">
+      <Pack>true</Pack>
+      <PackagePath>runtimes\win-x86\native</PackagePath>
+    </None>
+    <None Include="..\Native\publish\win-x64\Native.dll"
+          Condition="Exists('..\Native\publish\win-x64\Native.dll')">
+      <Pack>true</Pack>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
+    </None>
+    <None Include="..\Native\publish\win-arm64\Native.dll"
+          Condition="Exists('..\Native\publish\win-arm64\Native.dll')">
+      <Pack>true</Pack>
+      <PackagePath>runtimes\win-arm64\native</PackagePath>
     </None>
   </ItemGroup>
 
