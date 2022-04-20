@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-./publish/Console
+dotnet run --project src/Console

@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Linux -->
+    <None Include="..\Native\publish\linux-x64\Native.so">
+      <Pack>true</Pack>
+      <PackagePath>runtimes\linux-x64\native</PackagePath>
+    </None>
+  </ItemGroup>
+
 </Project>
