@@ -16,4 +16,8 @@ public partial class Native
 
     [LibraryImport(nameof(Native))]
     public static partial ArrayStruct MinMax(ArrayStruct arrayStruct);
+
+    [LibraryImport(nameof(Native))]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static partial bool Contains(nint hashsetOfInt, int value);
 }

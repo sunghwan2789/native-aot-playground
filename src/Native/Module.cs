@@ -43,4 +43,17 @@ public class Module
 
         return new [] { min, max };
     }
+
+    [UnmanagedCallersOnly(EntryPoint = nameof(Contains))]
+    public static bool Contains(nint hashsetOfInt, int value)
+    {
+        var hashset = Marshal.PtrToStructure<HashSet<int>>(hashsetOfInt);
+        if (hashset is null)
+        {
+            Console.WriteLine("failed to convert");
+            return false;
+        }
+
+        return hashset.Contains(value);
+    }
 }
