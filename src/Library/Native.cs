@@ -3,17 +3,17 @@ using Library.NativeTypes;
 
 namespace Library;
 
-public class Native
+public partial class Native
 {
-    [DllImport(nameof(Native))]
-    public static extern int Add(int a, int b);
+    [LibraryImport(nameof(Native))]
+    public static partial int Add(int a, int b);
 
-    [DllImport(nameof(Native))]
-    public static extern int Subtract(int a, int b);
+    [LibraryImport(nameof(Native))]
+    public static partial int Subtract(int a, int b);
 
-    [DllImport(nameof(Native))]
-    public static extern int Sum(ArrayStruct array);
+    [LibraryImport(nameof(Native))]
+    public static partial int Sum(ArrayStruct array);
 
-    [DllImport(nameof(Native))]
-    public static extern ArrayStruct MinMax(ArrayStruct arrayStruct);
+    [LibraryImport(nameof(Native))]
+    public static partial ArrayStruct MinMax(ArrayStruct arrayStruct);
 }
