@@ -10,29 +10,29 @@
 
   <ItemGroup>
     <!-- Linux -->
-    <None Include="..\Native\publish\linux-x64\Native.so"
-          Condition="Exists('..\Native\publish\linux-x64\Native.so')">
+    <None Include="..\Native\bin\Release\net7.0\linux-x64\publish\Native.so"
+          Condition="Exists('..\Native\bin\Release\net7.0\linux-x64\publish\Native.so')">
       <Pack>true</Pack>
       <PackagePath>runtimes\linux-x64\native</PackagePath>
     </None>
-    <None Include="..\Native\publish\linux-arm64\Native.so"
-          Condition="Exists('..\Native\publish\linux-arm64\Native.so')">
+    <None Include="..\Native\bin\Release\net7.0\linux-arm64\publish\Native.so"
+          Condition="Exists('..\Native\bin\Release\net7.0\linux-arm64\publish\Native.so')">
       <Pack>true</Pack>
       <PackagePath>runtimes\linux-arm64\native</PackagePath>
     </None>
     <!-- Windows -->
-    <None Include="..\Native\publish\win-x86\Native.dll"
-          Condition="Exists('..\Native\publish\win-x86\Native.dll')">
+    <None Include="..\Native\bin\Release\net7.0\win-x86\publish\Native.dll"
+          Condition="Exists('..\Native\bin\Release\net7.0\win-x86\publish\Native.dll')">
       <Pack>true</Pack>
       <PackagePath>runtimes\win-x86\native</PackagePath>
     </None>
-    <None Include="..\Native\publish\win-x64\Native.dll"
-          Condition="Exists('..\Native\publish\win-x64\Native.dll')">
+    <None Include="..\Native\bin\Release\net7.0\win-x64\publish\Native.dll"
+          Condition="Exists('..\Native\bin\Release\net7.0\win-x64\publish\Native.dll')">
       <Pack>true</Pack>
       <PackagePath>runtimes\win-x64\native</PackagePath>
     </None>
-    <None Include="..\Native\publish\win-arm64\Native.dll"
-          Condition="Exists('..\Native\publish\win-arm64\Native.dll')">
+    <None Include="..\Native\bin\Release\net7.0\win-arm64\publish\Native.dll"
+          Condition="Exists('..\Native\bin\Release\net7.0\win-arm64\publish\Native.dll')">
       <Pack>true</Pack>
       <PackagePath>runtimes\win-arm64\native</PackagePath>
     </None>
