@@ -4,7 +4,7 @@ namespace Library.NativeTypes;
 
 public struct ArrayStruct
 {
-    public IntPtr Array;
+    public nint Array;
     public int Length;
 
     public static implicit operator ArrayStruct(Array array)
