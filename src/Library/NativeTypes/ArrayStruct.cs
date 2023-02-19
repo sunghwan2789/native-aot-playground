@@ -27,7 +27,7 @@ public struct ArrayStruct
 }
 
 [CustomMarshaller(typeof(int[]), MarshalMode.ManagedToUnmanagedIn, typeof(ArrayStructMarshaller))]
-[CustomMarshaller(typeof(int[]), MarshalMode.UnmanagedToManagedIn, typeof(ArrayStructMarshaller))]
+[CustomMarshaller(typeof(int[]), MarshalMode.Default, typeof(ArrayStructMarshaller))]
 public static unsafe class ArrayStructMarshaller
 {
     public static ArrayStruct ConvertToUnmanaged(int[] managed)
@@ -37,6 +37,11 @@ public static unsafe class ArrayStructMarshaller
             Array = Marshal.UnsafeAddrOfPinnedArrayElement(managed, 0),
             Length = managed.Length,
         };
+    }
+
+    public static int[] ConvertToManaged(ArrayStruct unmanaged)
+    {
+        return new Span<int>(unmanaged.Array.ToPointer(), unmanaged.Length).ToArray();
     }
 }
 

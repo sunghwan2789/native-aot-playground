@@ -18,7 +18,8 @@ public partial class Native
         int[] array);
 
     [LibraryImport(nameof(Native))]
-    public static partial ArrayStruct MinMax(
+    [return: MarshalUsing(typeof(ArrayStructMarshaller))]
+    public static partial int[] MinMax(
         [MarshalUsing(typeof(ArrayStructMarshaller))]
         int[] array);
 }
