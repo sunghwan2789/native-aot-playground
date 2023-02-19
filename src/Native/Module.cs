@@ -18,7 +18,7 @@ public class Module
     }
 
     [UnmanagedCallersOnly(EntryPoint = nameof(Sum))]
-    public static int Sum(ArrayStruct arrayStruct)
+    public static unsafe int Sum(ArrayStruct arrayStruct)
     {
         var span = arrayStruct.AsSpan<int>();
         var total = 0;
