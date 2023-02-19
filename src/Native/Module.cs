@@ -20,7 +20,8 @@ public class Module
     [UnmanagedCallersOnly(EntryPoint = nameof(Sum))]
     public static unsafe int Sum(ArrayStruct arrayStruct)
     {
-        var span = arrayStruct.AsSpan<int>();
+        var array = ArrayStructMarshaller.ConvertToManaged(arrayStruct);
+        var span = array.AsSpan();
         var total = 0;
         foreach (var i in span)
         {
@@ -32,7 +33,8 @@ public class Module
     [UnmanagedCallersOnly(EntryPoint = nameof(MinMax))]
     public static ArrayStruct MinMax(ArrayStruct arrayStruct)
     {
-        var span = arrayStruct.AsSpan<int>();
+        var array = ArrayStructMarshaller.ConvertToManaged(arrayStruct);
+        var span = array.AsSpan();
         var min = span[0];
         var max = span[0];
         foreach (var i in span[1..])
@@ -41,6 +43,7 @@ public class Module
             max = Math.Max(max, i);
         }
 
-        return new [] { min, max };
+        var minMax = new[] { min, max };
+        return ArrayStructMarshaller.ConvertToUnmanaged(minMax);
     }
 }

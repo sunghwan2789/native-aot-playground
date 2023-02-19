@@ -7,26 +7,8 @@ public struct ArrayStruct
 {
     public nint Array;
     public int Length;
-
-    public static implicit operator ArrayStruct(Array array)
-    {
-        return new ArrayStruct
-        {
-            Array = Marshal.UnsafeAddrOfPinnedArrayElement(array, 0),
-            Length = array.Length,
-        };
-    }
-
-    public Span<T> AsSpan<T>()
-    {
-        unsafe
-        {
-            return new Span<T>(Array.ToPointer(), Length);
-        }
-    }
 }
 
-[CustomMarshaller(typeof(int[]), MarshalMode.ManagedToUnmanagedIn, typeof(ArrayStructMarshaller))]
 [CustomMarshaller(typeof(int[]), MarshalMode.Default, typeof(ArrayStructMarshaller))]
 public static unsafe class ArrayStructMarshaller
 {
